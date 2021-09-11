@@ -23,6 +23,17 @@ public class UserRegistration {
     }
 
     /**
+     * Purpose : This method is used for creating the pattern of regex to validate E-Mail ID
+     * @param Email This is the first parameter of this method
+     * @return returns matching value
+     */
+    public static boolean validateEmail(String Email) {
+        Pattern pattern = Pattern.compile("^([a-zA-z0-9-_+.]+)@([a-z0-9-]+)\\.([a-z,]{2,4})((\\.[a-z]{2,4})?)$");
+        Matcher matcher = pattern.matcher(Email);
+        return matcher.matches();
+    }
+
+    /**
      * This method is created to implement and verify the user input
      */
     public void validateUserDetails() {
@@ -46,6 +57,15 @@ public class UserRegistration {
             System.out.println("Entered name : " + userDetails.getLastName() + " is valid");
         else
             System.out.println("Entered name : " + userDetails.getLastName() + " is not valid");
+
+        // validity of Email ID of user
+        System.out.println("Enter Your E-Mail ID. : ");
+        userDetails.setEmail(sc.next());
+        boolean mail = validateEmail(userDetails.getEmail());
+        if (mail)
+            System.out.println("Entered E-Mail ID. " + userDetails.getEmail() + " is valid");
+        else
+            System.out.println("Entered E-Mail ID. " + userDetails.getEmail() + " is not valid");
         sc.close();
     }
 }

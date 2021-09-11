@@ -6,6 +6,7 @@ package com.bridgelabz;
 public class UserDetails {
     String firstName;
     String lastName;
+    String Email;
 
     public String getFirstName() {
         return firstName;
@@ -21,5 +22,13 @@ public class UserDetails {
 
     public void setLastName(String lastName) {
         this.lastName = lastName;
+    }
+
+    public String getEmail() {
+        return Email;
+    }
+
+    public void setEmail(String email) {
+        Email = email;
     }
 }
