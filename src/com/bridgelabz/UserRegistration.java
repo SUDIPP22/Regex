@@ -37,6 +37,15 @@ public class UserRegistration {
             System.out.println("Entered name : " + userDetails.getFirstName() + " is valid");
         else
             System.out.println("Entered name : " + userDetails.getFirstName() + " is not valid");
+
+        // validity of last name of user
+        System.out.println("Enter Your Last Name : ");
+        userDetails.setLastName(sc.next());
+        boolean lastName = validateName(userDetails.getLastName());
+        if (lastName)
+            System.out.println("Entered name : " + userDetails.getLastName() + " is valid");
+        else
+            System.out.println("Entered name : " + userDetails.getLastName() + " is not valid");
         sc.close();
     }
 }
