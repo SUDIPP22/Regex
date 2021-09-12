@@ -2,7 +2,7 @@ package com.bridgelabz;
 
 /**
  * Purpose :To implement usage of Java Regular Expression and Patterns
- * To validate the First Name, Last Name, Email-ID of user using regex
+ * To validate the First Name, Last Name, Email-ID, Mobile Number of user using regex
  * @author SUDIP PANJA
  * @version 11.0.11
  * @since 2021-09-09

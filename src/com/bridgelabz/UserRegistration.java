@@ -34,6 +34,17 @@ public class UserRegistration {
     }
 
     /**
+     * Purpose : This method is used for creating the pattern of regex to validate Mobile Number
+     * @param mobileNumber This is the first parameter of this method
+     * @return returns matching value
+     */
+    public static boolean validateMobileNumber(String mobileNumber) {
+        Pattern pattern = Pattern.compile("^[91]{2}[0-9]{10}$");
+        Matcher matcher = pattern.matcher(mobileNumber);
+        return matcher.matches();
+    }
+
+    /**
      * This method is created to implement and verify the user input
      */
     public void validateUserDetails() {
@@ -66,6 +77,15 @@ public class UserRegistration {
             System.out.println("Entered E-Mail ID. " + userDetails.getEmail() + " is valid");
         else
             System.out.println("Entered E-Mail ID. " + userDetails.getEmail() + " is not valid");
+
+        // validity of Phone Number of user
+        System.out.println("Enter Your Mobile Number : ");
+        userDetails.setMobileNumber(sc.next());
+        boolean phoneNumber = validateMobileNumber(userDetails.getMobileNumber());
+        if (phoneNumber)
+            System.out.println("Entered Mobile Number : " + userDetails.getMobileNumber() + " is valid");
+        else
+            System.out.println("Entered Mobile Number : " + userDetails.getMobileNumber() + " is not valid");
         sc.close();
     }
 }
