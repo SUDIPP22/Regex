@@ -49,11 +49,12 @@ public class UserRegistration {
      * Rule 1 : Password should have minimum 8 characters
      * Rule 2 : Password should have at least 1 Upper Case
      * Rule 3 : Password should have at least 1 Numeric Number
+     * Rule 4 : Password should have at least 1 Special Character
      * @param password This is the first parameter of this method
      * @return returns matching value
      */
     public static boolean validatePassword(String password) {
-        Pattern pattern = Pattern.compile("^[a-z(?=.*A-Z)(?=.*0-9)@#$%^&+=]{8,}$");
+        Pattern pattern = Pattern.compile("^[a-z(?=.*A-Z)(?=.*0-9)(?=.*@#$%^&+=)]{8,}$");
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
