@@ -45,6 +45,18 @@ public class UserRegistration {
     }
 
     /**
+     * Purpose : This method is used for creating the pattern of regex to validate Password
+     * Rule 1 : Password should have minimum 8 characters
+     * @param password This is the first parameter of this method
+     * @return returns matching value
+     */
+    public static boolean validatePassword(String password) {
+        Pattern pattern = Pattern.compile("^[a-zA-Z0-9@#$%^&+=]{8,}$");
+        Matcher matcher = pattern.matcher(password);
+        return matcher.matches();
+    }
+
+    /**
      * This method is created to implement and verify the user input
      */
     public void validateUserDetails() {
@@ -86,6 +98,15 @@ public class UserRegistration {
             System.out.println("Entered Mobile Number : " + userDetails.getMobileNumber() + " is valid");
         else
             System.out.println("Entered Mobile Number : " + userDetails.getMobileNumber() + " is not valid");
+
+        // validity of Password of user
+        System.out.println("Set Your Password : ");
+        userDetails.setPassword(sc.next());
+        boolean password = validatePassword(userDetails.getPassword());
+        if (password)
+            System.out.println(userDetails.getPassword() + " is available");
+        else
+            System.out.println("Invalid Password!!!");
         sc.close();
     }
 }
