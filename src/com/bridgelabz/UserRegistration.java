@@ -47,11 +47,12 @@ public class UserRegistration {
     /**
      * Purpose : This method is used for creating the pattern of regex to validate Password
      * Rule 1 : Password should have minimum 8 characters
+     * Rule 2 : Password should have at least 1 Upper Case
      * @param password This is the first parameter of this method
      * @return returns matching value
      */
     public static boolean validatePassword(String password) {
-        Pattern pattern = Pattern.compile("^[a-zA-Z0-9@#$%^&+=]{8,}$");
+        Pattern pattern = Pattern.compile("^[a-z(?=.*A-Z)0-9@#$%^&+=]{8,}$");
         Matcher matcher = pattern.matcher(password);
         return matcher.matches();
     }
